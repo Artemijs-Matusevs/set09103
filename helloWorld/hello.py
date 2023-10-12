@@ -11,10 +11,11 @@ def static_example_img():
     url = url_for("static", filename="vmask.jpg")
     return '<img src="'+url+'">', 200
 
-
+#Generate basic html with h1 tag and link CSS to change color to green
 @app.route('/hello/')
 def hello():
-    return "Hello!"
+    url =url_for("static", filename="styles.css")
+    return '<link rel="stylesheet" href="'+url+'"> <h1> Hello! </h1>'
 
 
 @app.route('/goodbye/')

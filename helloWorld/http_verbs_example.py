@@ -3,11 +3,28 @@ app = Flask(__name__)
 
 @app.route('/')
 def root():
-    return "The default, 'root' route"
+    return '''
+    <html>
+        <body>
+            <a href="/account"> ACCOUNT </a>
+        </body>
+    </html>'''
 
 @app.route("/account", methods=['GET', 'POST'])
 def account():
     if request.method == 'POST':
-        return "POST'ed to /account root\n"
+        print (request.form)
+        return "Hello %s" % request.form['name']
     else:
-        return "GET /account root"
+        page = '''
+        <html>
+            <body>
+                <form action="" method="post" name="form">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name"/>
+                    <input type="submit" name="submit" id="submit"/>
+                </form>
+            </body>
+        </html>'''
+
+        return page

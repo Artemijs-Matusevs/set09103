@@ -24,3 +24,9 @@ def private():
 @app.route('/login')
 def login():
     return "LOGIN PAGE"
+
+
+# Custom error message for error code 404
+@app.errorhandler(404)
+def page_not_found(error):
+    return "Couldn't find the page you requested. ", 404

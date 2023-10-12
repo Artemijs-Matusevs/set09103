@@ -10,6 +10,12 @@ def root():
         </body>
     </html>'''
 
+#Create a custom URL which has a variable,
+@app.route('/hello/<name>')
+def hello(name):
+    return "Hello %s" % name
+
+#Generate a form and test POST request after submitting the form
 @app.route("/account", methods=['GET', 'POST'])
 def account():
     if request.method == 'POST':
@@ -26,5 +32,4 @@ def account():
                 </form>
             </body>
         </html>'''
-
         return page

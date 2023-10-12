@@ -5,6 +5,12 @@ app = Flask(__name__)
 def root():
     return "This is the home route of my web-app"
 
+#Generate a basic HTML with an img
+@app.route('/static-example/img')
+def static_example_img():
+    url = url_for("static", filename="vmask.jpg")
+    return '<img src="'+url+'">', 200
+
 
 @app.route('/hello/')
 def hello():
@@ -29,4 +35,5 @@ def login():
 # Custom error message for error code 404
 @app.errorhandler(404)
 def page_not_found(error):
-    return "Couldn't find the page you requested. ", 404
+    return "Couldn't find the page you requested. ", 300
+

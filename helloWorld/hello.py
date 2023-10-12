@@ -17,11 +17,6 @@ def hello():
     url =url_for("static", filename="styles.css")
     return '<link rel="stylesheet" href="'+url+'"> <h1> Hello! </h1>'
 
-
-@app.route('/goodbye/')
-def goodbye():
-    return "Goodbye!"
-
 @app.route("/private")
 def private():
     # Test for user log-in,
@@ -37,4 +32,6 @@ def login():
 @app.errorhandler(404)
 def page_not_found(error):
     return "Couldn't find the page you requested. ", 300
+
+
 
